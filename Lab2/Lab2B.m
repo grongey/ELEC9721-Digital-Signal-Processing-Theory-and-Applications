@@ -160,7 +160,7 @@ while i < length(s)-12-1
     s1 = [s(i:i+L-1) zeros(1,M-1)];
     freqspec = [freqspec fft(s1).*fft(h1)];
     yprime = ifft(fft(s1).*fft(h1));
-    y = [y(1:length(y)-M+1) y(length(y)-M+2:end)+yprime(1:M-1) yprime];
+    y = [y(1:length(y)-M+1) y(length(y)-M+2:end)+yprime(1:M-1) yprime(M:end)];
     tobeadded = yprime(1:length(yprime)-M+1);
     i = i+L;
 end
